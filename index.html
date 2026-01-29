@@ -233,6 +233,32 @@
       color: var(--color-text-muted);
     }
 
+    /* Video Section */
+    .video-section {
+      padding: 5rem 0;
+      background: var(--color-bg);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     /* Cards Section */
     .cards-section {
       padding: 5rem 0;
@@ -474,6 +500,24 @@
             <a href="/docs/browser/" class="btn btn-primary">Try the Demo</a>
             <a href="/docs/" class="btn btn-secondary">Read the Docs</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>See It in Action</h2>
+          <p>Your data, your choice</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/iwoIhRyeMWg"
+            title="SolidOS - Your Data, Your Choice"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
     </section>
