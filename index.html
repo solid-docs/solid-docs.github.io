@@ -11,6 +11,7 @@
   <meta property="og:title" content="SolidOS - Data Browser for the Decentralized Web">
   <meta property="og:description" content="Take control of your personal data with SolidOS. View, edit, and manage your Solid Pod data with built-in apps for contacts, chat, notes, and more.">
   <meta property="og:site_name" content="SolidOS">
+  <meta property="og:url" content="https://solidos.org/">
   <meta property="og:image" content="https://solidos.org/img/social-card.png">
 
   <!-- Twitter -->
@@ -42,19 +43,6 @@
       --color-text-muted: #6b7280;
       --color-border: #e5e7eb;
       --color-footer-bg: #1e1b4b;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-primary: #A78BFA;
-        --color-primary-dark: #8B5CF6;
-        --color-bg: #18162c;
-        --color-bg-surface: #0f0d1a;
-        --color-text: #f3f4f6;
-        --color-text-muted: #9ca3af;
-        --color-border: rgba(255,255,255,0.1);
-        --color-footer-bg: #0f0d1a;
-      }
     }
 
     body {
@@ -268,7 +256,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
     }
 
@@ -315,16 +303,21 @@
       text-decoration: underline;
     }
 
+    /* Run Section */
+    .run-section {
+      padding: 5rem 0;
+      background: var(--color-bg);
+    }
+
+    .run-section .card code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
     /* Ecosystem Section */
     .ecosystem {
       padding: 5rem 0;
       background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(37, 99, 235, 0.05));
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .ecosystem {
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(37, 99, 235, 0.1));
-      }
     }
 
     .ecosystem-grid {
@@ -467,7 +460,7 @@
 <body>
   <!-- Announcement Bar -->
   <div class="announcement">
-    Community-maintained resource for SolidOS. Help improve it - <a href="https://github.com/solid-docs">Contribute on GitHub</a>
+    SolidOS 3.1 is out: mashlib 3.1.0, 16 November 2026. <a href="/docs/guides/migrating-to-3.1">What changed</a> · Community-maintained docs: <a href="https://github.com/solid-docs">contribute on GitHub</a>
   </div>
 
   <header>
@@ -491,14 +484,14 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <span class="badge">Community Project</span>
+          <span class="badge">SolidOS 3.1 · Community Project</span>
           <h1>Data Browser for the Decentralized Web</h1>
           <p class="subtitle">
             SolidOS lets you view, edit, and manage your data stored in Solid Pods.
             Take control of your personal data with linked data principles.
           </p>
           <div class="cta-buttons">
-            <a href="/docs/browser/" class="btn btn-primary">Try the Demo</a>
+            <a href="https://mashlib.com/" class="btn btn-primary">Try the Demo</a>
             <a href="/docs/" class="btn btn-secondary">Dev Docs</a>
           </div>
         </div>
@@ -544,10 +537,10 @@
             <span class="card-link">Learn more →</span>
           </a>
 
-          <a href="/docs/browser/" class="card">
+          <a href="https://mashlib.com/" class="card">
             <div class="card-icon">🌐</div>
             <h3>Live Demo</h3>
-            <p>Try the databrowser now. Explore Solid Pods and see linked data in action.</p>
+            <p>Try the data browser now at mashlib.com: SolidOS 3.1, nothing to install. Paste the address of a pod, a folder or a profile.</p>
             <span class="card-link">Try it →</span>
           </a>
 
@@ -556,6 +549,40 @@
             <h3>GitHub</h3>
             <p>View the source, report issues, and contribute to SolidOS development.</p>
             <span class="card-link">View repos →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="run-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Run SolidOS 3.1</h2>
+          <p>Four ways to put the data browser to work</p>
+        </div>
+        <div class="cards">
+          <a href="https://mashlib.com/" class="card">
+            <h3>mashlib.com</h3>
+            <p>The official mashlib 3.1.0 bundle with an address bar. Open any resource on any pod, log in, edit.</p>
+            <span class="card-link">Open mashlib.com →</span>
+          </a>
+
+          <a href="/docs/guides/mashlib-com" class="card">
+            <h3>No build, panes by link</h3>
+            <p>mashlib.com/dynamic is the same data browser as plain ES modules. Add a pane with <code>?pane=</code> in the link; it asks before running code from another site.</p>
+            <span class="card-link">How it works →</span>
+          </a>
+
+          <a href="/docs/guides/running-on-jss" class="card">
+            <h3>On your own pod</h3>
+            <p>JavaScript Solid Server serves SolidOS for every resource with <code>--mashlib-module</code>, and loads extra panes with <code>--panes</code>.</p>
+            <span class="card-link">Run it on JSS →</span>
+          </a>
+
+          <a href="/docs/guides/embedding-mashlib" class="card">
+            <h3>In your own page</h3>
+            <p>Load mashlib 3.1.0 from a CDN, add a <code>#OutlineView</code>, and show any resource with one call.</p>
+            <span class="card-link">Embed mashlib →</span>
           </a>
         </div>
       </div>
@@ -570,23 +597,27 @@
         <div class="ecosystem-grid">
           <a href="https://github.com/linkeddata/rdflib.js" class="ecosystem-card" target="_blank">
             <span class="ecosystem-name">rdflib.js</span>
-            <span class="ecosystem-desc">RDF/JS library</span>
+            <span class="ecosystem-desc">RDF/JS library · 2.4.1</span>
           </a>
           <a href="https://github.com/SolidOS/solid-logic" class="ecosystem-card" target="_blank">
             <span class="ecosystem-name">solid-logic</span>
-            <span class="ecosystem-desc">Business logic</span>
+            <span class="ecosystem-desc">Store, login, access · 6.2.0</span>
           </a>
           <a href="https://github.com/SolidOS/solid-ui" class="ecosystem-card" target="_blank">
             <span class="ecosystem-name">solid-ui</span>
-            <span class="ecosystem-desc">UI components</span>
+            <span class="ecosystem-desc">UI components · 5.1.0</span>
+          </a>
+          <a href="https://github.com/SolidOS/pane-registry" class="ecosystem-card" target="_blank">
+            <span class="ecosystem-name">pane-registry</span>
+            <span class="ecosystem-desc">Pane registry · 5.1.1</span>
           </a>
           <a href="https://github.com/SolidOS/solid-panes" class="ecosystem-card" target="_blank">
             <span class="ecosystem-name">solid-panes</span>
-            <span class="ecosystem-desc">Pane registry</span>
+            <span class="ecosystem-desc">Built-in panes · 5.1.0</span>
           </a>
           <a href="https://github.com/SolidOS/mashlib" class="ecosystem-card" target="_blank">
             <span class="ecosystem-name">mashlib</span>
-            <span class="ecosystem-desc">Bundled browser</span>
+            <span class="ecosystem-desc">Bundled browser · 3.1.0</span>
           </a>
         </div>
       </div>
@@ -612,7 +643,8 @@
           <ul>
             <li><a href="/userguide/">User Guide</a></li>
             <li><a href="/docs/">Dev Docs</a></li>
-            <li><a href="/docs/browser/">Live Demo</a></li>
+            <li><a href="https://mashlib.com/">Live Demo</a></li>
+            <li><a href="/docs/guides/migrating-to-3.1">What is new in 3.1</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -635,6 +667,8 @@
           <h4>More</h4>
           <ul>
             <li><a href="https://solidproject.org/users/get-a-pod">Get a Pod</a></li>
+            <li><a href="https://mashlib.com/dynamic/">mashlib.com/dynamic</a></li>
+            <li><a href="https://jss.live/">JavaScript Solid Server</a></li>
             <li><a href="https://github.com/CommunitySolidServer/CommunitySolidServer">CSS Server</a></li>
           </ul>
         </div>
